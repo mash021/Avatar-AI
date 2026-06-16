@@ -68,6 +68,34 @@ cd frontend
 npm test
 ```
 
+### Test Coverage
+
+The backend ships with a pytest suite covering the core services and API endpoints:
+
+| Area | Test file |
+|------|-----------|
+| Auth (login, password hashing) | `test_auth.py` |
+| Health check | `test_health.py` |
+| Database connectivity | `test_database.py` |
+| Language detection | `test_language_service.py` |
+| Text cleaning | `test_text_cleaning.py` |
+| Chunking | `test_chunking.py` |
+| Document/URL parsers | `test_parsers.py` |
+| Web scraper | `test_scraper.py` |
+| Ingestion pipeline | `test_ingestion.py` |
+| RAG retrieval & answers | `test_rag.py` |
+| Embedding service (init + idempotency) | `test_embedding_service.py` |
+| Chat service (sessions, persistence, language) | `test_chat_service.py` |
+| KB version counter | `test_kb_version_service.py` |
+| Response overrides | `test_overrides.py` |
+| Avatar config | `test_avatar.py` |
+| Voice (STT/TTS) | `test_voice.py` |
+| Admin: documents / URLs / chat logs | `test_admin_*.py` |
+
+Tests mock OpenAI embeddings and LLM calls (see `tests/conftest.py`), so most run
+without an `OPENAI_API_KEY`. A few endpoint tests that exercise a live LLM call
+require a valid key to be set in `backend/.env`.
+
 ## Project Structure
 
 ```
