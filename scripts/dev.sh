@@ -29,7 +29,7 @@ echo "Running database migrations..."
 cd backend && ../backend/.venv/bin/alembic upgrade head && cd ..
 
 echo "Seeding default admin user..."
-backend/.venv/bin/python ../scripts/seed-admin.py
+backend/.venv/bin/python scripts/seed-admin.py
 
 if [ ! -f frontend/.env.local ]; then
   echo "Creating frontend/.env.local from .env.example..."
